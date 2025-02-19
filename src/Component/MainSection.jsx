@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import { 
-  LayoutDashboard, 
-  MessageSquare, 
+import {
+  LayoutDashboard,
+  MessageSquare,
   Briefcase,
   Users2,
+  User,
+  BookOpen,
   FileText,
   UserCog,
   CalendarRange,
@@ -18,6 +20,7 @@ import {
   Eye,
   Download
 } from 'lucide-react';
+import { FaFlagCheckered } from "react-icons/fa6";
 import Sidebar from './Sidebar';
 
 function MainSection() {
@@ -28,17 +31,17 @@ function MainSection() {
 
   return (
     <div className="min-h-screen bg-blue-50 flex">
-    
-      <Sidebar/>
-           
+
+      <Sidebar />
+
       <div className={`flex-1 ${isOpen ? 'ml-64' : 'ml-20'} transition-all duration-300`}>
-        
-      <div className="bg-white p-4 flex items-center justify-between">
-          <div className="flex items-center gap-4 flex-1 ml-20"> 
+
+        <div className="bg-white p-4 flex items-center justify-between">
+          <div className="flex items-center gap-4 flex-1 ml-20">
             <div className="relative flex-1 max-w-xl">
               <div className="absolute inset-y-0 left-0 flex items-center">
                 <select className="h-full bg-[#1a237e] text-white px-4 rounded-l-md">
-                  <option>All Candidates</option>
+                  <option className='cursor-pointer'>All Candidates</option>
                 </select>
               </div>
               <input
@@ -64,13 +67,13 @@ function MainSection() {
           </div>
         </div>
 
-        
+
         {/* here comes the main section the main section*/}
 
         <div className="p-6">
           <h1 className="text-2xl font-semibold mb-6">Dashboard</h1>
 
-        
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
             <div className="bg-yellow-400 p-6 rounded-lg flex items-center justify-between">
               <div>
@@ -102,9 +105,33 @@ function MainSection() {
             </div>
           </div>
 
-         
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6  "> 
+            <div className="bg-yellow-400 p-6 rounded-lg flex items-center justify-between">  
+              <div>
+                <h3 className="text-4xl font-semibold">200</h3>
+                <p>Employee</p>
+              </div>
+              <User  className="w-12 h-12" />
+            </div>
+            <div className="bg-[#1a237e] text-white p-6 rounded-lg flex items-center justify-between">
+              <div>
+                <h3 className="text-4xl font-semibold">20</h3>
+                <p>Leaves</p>
+              </div>
+              <BookOpen className="w-12 h-12" />
+            </div>
+            <div className="bg-green-600 text-white p-6 rounded-lg flex items-center justify-between">
+              <div>
+                <h3 className="text-4xl font-semibold">200</h3>
+                <p>Payrolls</p>
+              </div>
+              <FaFlagCheckered  className="w-12 h-12" />
+            </div>
+          </div>
+
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          
+
             <div className="bg-white rounded-lg p-6">
               <div className="flex justify-between items-center mb-4">
                 <h2 className="text-lg font-semibold">Applied Jobs</h2>
@@ -132,7 +159,7 @@ function MainSection() {
               </div>
             </div>
 
-           
+
             <div className="bg-white rounded-lg p-6">
               <div className="flex justify-between items-center mb-4">
                 <h2 className="text-lg font-semibold">Employees</h2>
@@ -165,7 +192,7 @@ function MainSection() {
               </div>
             </div>
 
-           
+
             <div className="bg-white rounded-lg p-6">
               <div className="flex justify-between items-center mb-4">
                 <h2 className="text-lg font-semibold">Candidates</h2>
@@ -189,9 +216,9 @@ function MainSection() {
                       {candidate.score > 0 ? (
                         <span className="px-2 py-1 rounded-full text-sm">
                           <h1 className='text-lg font-medium'>ATS Score </h1>
-                          <h1 className={`${candidate.score >75 ? "bg-green-500 text-white" : "bg-red-500 text-white"} rounded-full w-8 h-6 flex justify-center  items-center pt-[2px]`}>{candidate.score}</h1>
+                          <h1 className={`${candidate.score > 75 ? "bg-green-500 text-white" : "bg-red-500 text-white"} rounded-full w-8 h-6 flex justify-center  items-center pt-[2px]`}>{candidate.score}</h1>
                         </span>
-                         
+
                       ) : candidate.time ? (
                         <span className="text-sm text-gray-400">{candidate.time}</span>
                       ) : null}
@@ -222,11 +249,10 @@ function MainSection() {
                         <p className="text-sm text-gray-500">Salary Amount: {payroll.amount}</p>
                       </div>
                     </div>
-                    <span className={`px-3 py-1 rounded-full text-sm ${
-                      payroll.status === 'Paid' 
-                        ? 'bg-green-100 text-green-600'
-                        : 'bg-yellow-100 text-yellow-600'
-                    }`}>
+                    <span className={`px-3 py-1 rounded-full text-sm ${payroll.status === 'Paid'
+                      ? 'bg-green-100 text-green-600'
+                      : 'bg-yellow-100 text-yellow-600'
+                      }`}>
                       {payroll.status}
                     </span>
                   </div>

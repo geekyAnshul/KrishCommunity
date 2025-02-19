@@ -12,6 +12,7 @@ import UserDashboard from './Component/UserSide/UserDashboard'
 import EmployeeManagement from './Component/EmployeeManagement'
 import EmployeeDetails from './Component/EmployeeDetails'
 import PerformanceManagement from './Component/PerformanceManagement'
+import UserLeaveSection from './Component/UserSide/UserLeaveSection'
 
 function App() {
   
@@ -37,6 +38,7 @@ function App() {
          <Route path="register" Component={RegisterPage}/>
          <Route path="loginuser" Component={LoginPage}/>
           <Route path="user" Component={UserDashboard}/>
+          <Route path="/leave-application" element={<UserLeaveSection />} /> 
       </Routes>
      </Router>
 

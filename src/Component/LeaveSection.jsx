@@ -196,9 +196,8 @@ function LeaveSection() {
       <Sidebar />
 
       <div
-        className={`flex-1 ${
-          isOpen ? "ml-64" : "ml-20"
-        } transition-all duration-300`}
+        className={`flex-1 ${isOpen ? "ml-64" : "ml-20"
+          } transition-all duration-300`}
       >
         <div className="bg-white p-4 flex items-center justify-between">
           <div className="flex items-center gap-4 flex-1 ml-64">
@@ -238,7 +237,7 @@ function LeaveSection() {
         </div>
 
 
-  {/* The Above code is the copy pasted code for navbar and the side bar   */}
+        {/* The Above code is the copy pasted code for navbar and the side bar   */}
 
 
 
@@ -265,49 +264,45 @@ function LeaveSection() {
           <div className="grid grid-cols-2  lg:grid-cols-4 gap-4 mb-6">
             <button
               onClick={() => setActiveTab("leaveSettings")}
-              className={`py-4 px-6 rounded-xl text-center transition-colors ${
-                activeTab === "leaveSettings"
+              className={`py-4 px-6 rounded-xl text-center transition-colors ${activeTab === "leaveSettings"
                   ? "bg-yellow-500 text-white"
                   : "bg-blue-900 text-white"
-              }`}
+                }`}
             >
               Leave Settings
             </button>
             <button
               onClick={() => setActiveTab("leaveRecall")}
-              className={`py-4 px-6 rounded-xl text-center transition-colors ${
-                activeTab === "leaveRecall"
+              className={`py-4 px-6 rounded-xl text-center transition-colors ${activeTab === "leaveRecall"
                   ? "bg-yellow-500 text-white"
                   : "bg-blue-900 text-white"
-              }`}
+                }`}
             >
               Leave Recall
             </button>
             <button
               onClick={() => setActiveTab("leaveHistory")}
-              className={`py-4 px-6 rounded-xl text-center transition-colors ${
-                activeTab === "leaveHistory"
+              className={`py-4 px-6 rounded-xl text-center transition-colors ${activeTab === "leaveHistory"
                   ? "bg-yellow-500 text-white"
                   : "bg-blue-900 text-white"
-              }`}
+                }`}
             >
               Leave History
             </button>
 
             <button
               onClick={() => setActiveTab("reliefOfficers")}
-              className={`py-4 px-6 rounded-xl text-center transition-colors ${
-                activeTab === "reliefOfficers"
+              className={`py-4 px-6 rounded-xl text-center transition-colors ${activeTab === "reliefOfficers"
                   ? "bg-yellow-500 text-white"
                   : "bg-blue-900 text-white"
-              }`}
+                }`}
             >
               Relief Officers
             </button>
           </div>
 
 
-   {/* the bootom part of the code and logical part of the code  */}
+          {/* the bootom part of the code and logical part of the code  */}
 
 
 
@@ -673,83 +668,83 @@ function LeaveSection() {
                           </td>
                           <td className="px-6 py-4 text-sm">
                             <div className="relative">
-                              <button  onClick={() => setisModalOpen(true)} className="px-4 py-1 bg-red-500 text-white rounded-md flex items-center gap-2">
+                              <button onClick={() => setisModalOpen(true)} className="px-4 py-1 bg-red-500 text-white rounded-md flex items-center gap-2">
                                 Recall
                               </button>
                             </div>
                           </td>
                         </tr>
-                        
+
                       ))}
                     </tbody>
                     {isModalOpen && (
-        <div className="fixed inset-0 bg-[#00000060]  flex justify-center items-center">
+                      <div className="fixed inset-0 bg-[#00000060]  flex justify-center items-center">
 
-         
-          <div className="bg-white p-8 rounded-3xl shadow-lg w-[600px] scale-100 transition-transform">
-          <SlCallIn className="text-2xl "/>
-            <h2 className="text-lg font-semibold mb-2 mt-6">Leave Recall</h2>
-            <p className="text-sm text-gray-600 mb-4">Fill in the required details to recall this employee</p>
-            <div className="space-y-3">
-              <div>
-                <label className="block text-sm text-zinc-600 font-medium">Employee Name</label>
-                <input type="text" value={formData.employeeName} disabled className="w-full px-3 text-zinc-500 py-2 border rounded-lg bg-blue-50 border-none outline-none " />
-              </div>
-              <div>
-                <label className="block text-sm text-zinc-600 font-medium">Department</label>
-                <input type="text" value={formData.department} disabled className="w-full px-3 py-2 text-zinc-500 border rounded-lg bg-blue-50 border-none outline-none "/>
-              </div>
-              <div className="flex items-center justify-between  gap-4 w-full ">
-                <div>
-                  <label className="block text-sm text-zinc-600 font-medium">Start Date</label>
-                  <input type="date" value={formData.startDate} disabled className="w-full px-3 py-2 text-zinc-500 border rounded-lg bg-blue-50 border-none outline-none " />
-                </div>
-                <div>
-                  <label className="block text-sm text-zinc-600 font-medium">End Date</label>
-                  <input type="date" value={formData.endDate} disabled className="w-full px-3 py-2 border text-zinc-500 rounded-lg bg-blue-50 border-none outline-none " />
-                </div>
-              </div>
-             <div className="flex gap-4 justify-between w-full  items-center ">
-             <div>
-                <label className="block text-sm text-zinc-600 font-medium">Days Remaining</label>
-                <input type="number" value={formData.daysRemaining} disabled className="w-full px-3 py-2 border text-zinc-500 rounded-lg bg-blue-50 border-none outline-none " />
-              </div>
-              
-              <div>   
-                <label className="block text-sm text-zinc-600 font-medium">New Resumption Date</label>
-                <input
-                  type="date"
-                  value={formData.newResumptionDate}
-                  onChange={(e) => setFormData({ ...formData, newResumptionDate: e.target.value })}
-                  className="w-full px-3 py-2 border text-zinc-500 bg-blue-50 outline-none border-none rounded-lg"
-                />
-              </div>
-             </div>
-              <div>
-                <label className="block text-sm text-zinc-600 font-medium">Relief Officer(s)</label>
-                <input type="text" value={formData.reliefOfficer} disabled className="w-full text-zinc-500 px-3 py-2 border rounded-lg bg-blue-50 border-none outline-none " />
-              </div>
-            </div>
-            <div className="flex justify-between mt-8">
-              <button
-                onClick={handleInitiateRecall}
-                className="px-4 py-4 font-semibold   bg-green-700 text-white rounded-lg w-full mr-2"
-              >
-                Initiate Recall
-              </button>
-              <button
-                onClick={() => setisModalOpen(false)}
-                className="px-4 py-4 font-semibold border-2 border-red-500 text-red-500  rounded-lg w-full"
-              >
-                Cancel
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
+
+                        <div className="bg-white p-8 rounded-3xl shadow-lg w-[600px] scale-100 transition-transform">
+                          <SlCallIn className="text-2xl " />
+                          <h2 className="text-lg font-semibold mb-2 mt-6">Leave Recall</h2>
+                          <p className="text-sm text-gray-600 mb-4">Fill in the required details to recall this employee</p>
+                          <div className="space-y-3">
+                            <div>
+                              <label className="block text-sm text-zinc-600 font-medium">Employee Name</label>
+                              <input type="text" value={formData.employeeName} disabled className="w-full px-3 text-zinc-500 py-2 border rounded-lg bg-blue-50 border-none outline-none " />
+                            </div>
+                            <div>
+                              <label className="block text-sm text-zinc-600 font-medium">Department</label>
+                              <input type="text" value={formData.department} disabled className="w-full px-3 py-2 text-zinc-500 border rounded-lg bg-blue-50 border-none outline-none " />
+                            </div>
+                            <div className="flex items-center justify-between  gap-4 w-full ">
+                              <div>
+                                <label className="block text-sm text-zinc-600 font-medium">Start Date</label>
+                                <input type="date" value={formData.startDate} disabled className="w-full px-3 py-2 text-zinc-500 border rounded-lg bg-blue-50 border-none outline-none " />
+                              </div>
+                              <div>
+                                <label className="block text-sm text-zinc-600 font-medium">End Date</label>
+                                <input type="date" value={formData.endDate} disabled className="w-full px-3 py-2 border text-zinc-500 rounded-lg bg-blue-50 border-none outline-none " />
+                              </div>
+                            </div>
+                            <div className="flex gap-4 justify-between w-full  items-center ">
+                              <div>
+                                <label className="block text-sm text-zinc-600 font-medium">Days Remaining</label>
+                                <input type="number" value={formData.daysRemaining} disabled className="w-full px-3 py-2 border text-zinc-500 rounded-lg bg-blue-50 border-none outline-none " />
+                              </div>
+
+                              <div>
+                                <label className="block text-sm text-zinc-600 font-medium">New Resumption Date</label>
+                                <input
+                                  type="date"
+                                  value={formData.newResumptionDate}
+                                  onChange={(e) => setFormData({ ...formData, newResumptionDate: e.target.value })}
+                                  className="w-full px-3 py-2 border text-zinc-500 bg-blue-50 outline-none border-none rounded-lg"
+                                />
+                              </div>
+                            </div>
+                            <div>
+                              <label className="block text-sm text-zinc-600 font-medium">Relief Officer(s)</label>
+                              <input type="text" value={formData.reliefOfficer} disabled className="w-full text-zinc-500 px-3 py-2 border rounded-lg bg-blue-50 border-none outline-none " />
+                            </div>
+                          </div>
+                          <div className="flex justify-between mt-8">
+                            <button
+                              onClick={handleInitiateRecall}
+                              className="px-4 py-4 font-semibold   bg-green-700 text-white rounded-lg w-full mr-2"
+                            >
+                              Initiate Recall
+                            </button>
+                            <button
+                              onClick={() => setisModalOpen(false)}
+                              className="px-4 py-4 font-semibold border-2 border-red-500 text-red-500  rounded-lg w-full"
+                            >
+                              Cancel
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    )}
                   </table>
 
-                  
+
                 </div>
               </div>
             )}
