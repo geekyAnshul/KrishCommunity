@@ -63,9 +63,15 @@ function UserDashboard() {
                 if(action === 'Apply for Leave'){
                   window.location.href = '/leave-application'
                 }
+                if(action === 'Update Profile'){
+                  window.location.href = '/userprofile'
+                }
                }} >
               {action}
             </button>
+
+
+
           ))}
         </div>
 

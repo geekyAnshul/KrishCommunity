@@ -13,6 +13,12 @@ import EmployeeManagement from './Component/EmployeeManagement'
 import EmployeeDetails from './Component/EmployeeDetails'
 import PerformanceManagement from './Component/PerformanceManagement'
 import UserLeaveSection from './Component/UserSide/UserLeaveSection'
+import AnnualLeave from './Component/UserSide/AnnualLeave'
+import SickLeave from './Component/UserSide/SickLeave'
+import MaternityLeave from './Component/UserSide/MaternityLeave'
+import CompLeave from './Component/UserSide/CompLeave'
+import UpdateProfile from './Component/UserSide/UpdateProfile'
+// import SubmitPopup from './Component/UserSide/SubmitPopup'
 
 function App() {
   
@@ -28,6 +34,7 @@ function App() {
          <Route path="/employee-management" Component={EmployeeManagement}/>
          <Route path="/employee-details" Component={EmployeeDetails}/>
          <Route path="/performance-management" Component={PerformanceManagement}/>
+        
           
 
 
@@ -39,6 +46,12 @@ function App() {
          <Route path="loginuser" Component={LoginPage}/>
           <Route path="user" Component={UserDashboard}/>
           <Route path="/leave-application" element={<UserLeaveSection />} /> 
+          <Route path="/apply-leave" element={<AnnualLeave/>}/>
+          <Route path="/apply-sickleave" element={<SickLeave/>}/>
+          <Route path="/apply-maternityleave" element={<MaternityLeave/>}/>
+          <Route path="/apply-compassionateleave" element={<CompLeave/>}/>
+          <Route path="/userprofile" element={<UpdateProfile/>}/>
+          {/* <Route path="/submitPopup" element={<SubmitPopup/>}/> */}
       </Routes>
      </Router>
 
