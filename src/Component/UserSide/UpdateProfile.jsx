@@ -1,25 +1,11 @@
-// import React from 'react'
-
-// const UpdateProfile = () => {
-//   return (
-//     <div>
-      
-//     </div>
-//   )
-// }
-
-// export default UpdateProfile
-
-
-
-
 import React, { useState } from "react";
 import { Bell, FileText, Key, Mail, PencilLine, Search } from "lucide-react";
-// import Sidebar from "./Sidebar";
+// import Sidebar from "../Sidebar";
 import { FaEdit } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 // Sample employee data
-const UpdateProfile = {
+const employeeData = {
   name: "John Doe Francis",
   department: "Design & Marketing",
   jobTitle: "UI / UX Designer",
@@ -72,7 +58,7 @@ const UpdateProfile = {
   ],
 };
 
-function EmployeeDetails() {
+function UpdateProfile() {
   const menuItems = [
     "Personal Details",
     "Contact Details",
@@ -88,23 +74,30 @@ function EmployeeDetails() {
 
   const [isOpen, setisOpen] = useState(false);
 
+  const navigate = useNavigate();
+
+  const accounts = [
+    { accountNumber: "0001100101", name: "John Doe", bank: "GTBank", type: "Savings Account" },
+    { accountNumber: "0001100101", name: "Doe Johnn", bank: "GTBank", type: "Savings Account" },
+  ];
+
   return (
     <div className="min-h-screen bg-blue-50 flex">
-      <Sidebar />
+      {/* <Sidebar /> */}
 
       <div
         className={`flex-1 ${
           isOpen ? "ml-64" : "ml-20"
         } transition-all duration-300`}
       >
-        <div className="bg-white p-4 flex items-center justify-between">
-          <div className="flex items-center gap-4 flex-1 ml-64">
+        <div className="bg-white p-4 flex items-center justify-c">
+          <div className="flex items-center gap-4 flex-1 ml-84">
             <div className="relative flex-1 max-w-xl">
               <div className="absolute inset-y-0 left-0 flex items-center">
                 <select className="h-full bg-[#1a237e] text-white px-4 rounded-l-md">
                   <option>All Candidates</option>
                   <option>Two Candidates</option>
-                  <option>fve Candidates</option>
+                  <option>five Candidates</option>
                 </select>
               </div>
               <input
@@ -135,14 +128,13 @@ function EmployeeDetails() {
         </div>
 
         <div className="ml-44 bg-blue-50 p-6">
-          
-          <div className="text-sm mb-6">
+          <div className="text-sm mb-6 ml-2">
             <p className="text-gray-700 font-semibold text-xl">
               Employee Mgmt / Employee Profile / JohnDoe
             </p>
           </div>
 
-          <div className="flex flex-col md:flex-row gap-8">
+          <div className="flex flex-col md:flex-row gap-8 mr-70">
             <div className="w-full md:w-80 bg-white rounded-2xl p-4 h-fit">
               <button
                 onClick={() => setActiveTab("personalDetails")}
@@ -199,7 +191,7 @@ function EmployeeDetails() {
 
               <button
                 onClick={() => setActiveTab("family")}
-                className={ `w-full text-left px-6 py-4 rounded-lg text-lg mb-4 ${
+                className={`w-full text-left px-6 py-4 rounded-lg text-lg mb-4 ${
                   activeTab === "family"
                     ? "bg-[#FFC107] font-medium"
                     : "bg-[#F0F4FF]"
@@ -348,9 +340,12 @@ function EmployeeDetails() {
                     rows={5}
                     name=""
                     id=""
-                    className="w-full text-zinc-400 text-lg outline-none border-none bg-blue-50  rounded-lg p-4"
+                    className="w-full text-zinc-400 text-lg outline-none border-none bg-blue-50  rounded-lg p-2"
                     value={employeeData.contactDetails.address}
                   ></textarea>
+                </div>
+                <div className="bg-green-600 w-35 ml-60 text-black px-10 py-1 rounded-lg shadow-md">
+                  <button>Update</button>
                 </div>
               </div>
             )}
@@ -416,14 +411,82 @@ function EmployeeDetails() {
                     value={employeeData.contactDetails.address}
                   ></textarea>
                 </div>
+
+                <div className="bg-green-600 w-35 ml-60 text-black px-10 py-1 rounded-lg shadow-md">
+                  <button>Update</button>
+                </div>
               </div>
             )}
 
             {activeTab === "educationQualifications" && (
               <div className="space-y-6 bg-white p-8 rounded-2xl md:w-3xl">
+               
+                <div class="max-w-2xl mx-auto bg-white p-6 rounded-lg shadow-md">
+                  {/* <!-- Academic Records --> */}
+                  <p class="text-lg font-bold mb-4">Academic Records</p>
+
+                  <div class="bg-blue-100 p-4 rounded-lg mb-3">
+                    <h3 class="font-bold">Leicester University</h3>
+                    <p class="text-sm text-gray-600">
+                      B.Sc in Computer Science,{" "}
+                      <span class="font-medium">May 2014 - May 2018</span>
+                    </p>
+                  </div>
+
+                  <div class="bg-blue-100 p-4 rounded-lg mb-6">
+                    <h3 class="font-bold">English College</h3>
+                    <p class="text-sm text-gray-600">
+                      W.A.S.S.C.E.,{" "}
+                      <span class="font-medium">February 2006 - June 2012</span>
+                    </p>
+                  </div>
+
+                  {/* <!-- Professional Qualifications --> */}
+                  <h2 class="text-lg font-bold mb-4">
+                    Professional Qualifications
+                  </h2>
+
+                  <div class="bg-blue-100 p-4 rounded-lg mb-3">
+                    <h3 class="font-bold">CCNA Certification</h3>
+                    <p class="text-sm text-gray-600">
+                      at New Horizons,{" "}
+                      <span class="font-medium">May 2019 - September 2021</span>
+                    </p>
+                  </div>
+
+                  <div class="bg-blue-100 p-4 rounded-lg mb-3">
+                    <h3 class="font-bold">Google UI / UX Certification</h3>
+                    <p class="text-sm text-gray-600">
+                      at Google Inc.,{" "}
+                      <span class="font-medium">
+                        September 2021 - September 2022
+                      </span>
+                    </p>
+                  </div>
+
+                  <div class="bg-blue-100 p-4 rounded-lg">
+                    <h3 class="font-bold">Web Developer</h3>
+                    <p class="text-sm text-gray-600">
+                      at Google Inc.,{" "}
+                      <span class="font-medium">May 2019 - September 2021</span>
+                    </p>
+                    <ul class="list-disc list-inside text-gray-600 text-sm mt-2">
+                      <li>
+                        Collaborated with teammates to deliver valuable features
+                        meeting business and customer needs.
+                      </li>
+                    </ul>
+                  </div>
+                  <div className="bg-green-600 w-70 ml-85 text-black px-10 py-1 rounded-lg shadow-md mt-3" onClick={() => navigate("/education-details")}><button>View Academic Details</button></div>
+                </div>
+              </div>
+            )}
+
+            {/* {activeTab === "educationQualifications" && (
+              <div className="space-y-6 bg-white p-8 rounded-2xl md:w-3xl">
                 <h1 className="text-xl font-semibold text-black mb-8">
                   {" "}
-                  Academic / Academic Details
+                  Academic Records / Academic Details
                 </h1>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
@@ -484,8 +547,8 @@ function EmployeeDetails() {
                     value={employeeData.education.field}
                   ></textarea>
                 </div>
-              </div>
-            )}
+              </div> */}
+            {/* )} */}
 
             {activeTab === "gurarantorDetails" && (
               <div className="space-y-6 bg-white p-8 rounded-2xl md:w-3xl ">
@@ -516,6 +579,7 @@ function EmployeeDetails() {
                     Human Resources Manager , Apple Inc - 090 400 400 4848{" "}
                   </p>
                 </div>
+      
               </div>
             )}
 
@@ -683,7 +747,7 @@ function EmployeeDetails() {
                 </div>
 
                 <div className="space-y-4">
-                  <h3 className="text-xl font-semibold">Job Description</h3>
+                  <h3 className="text-xl font-semibold text-center">Job Description</h3>
                   <p className="text-sm text-gray-800">
                     Your responsibilities will include:
                   </p>
@@ -699,9 +763,18 @@ function EmployeeDetails() {
                 </div>
 
                 <div className="flex  mt-4">
+                  {/* <button onClick={()=>{
+                    navigate("/upload-documents")
+                  }} className="bg-green-600 w-70 ml-15 text-black px-10 py-3 rounded-lg shadow-md mt-3">Upload Documents</button> */}
+                  <button
+      onClick={() => navigate("/upload-documents")}
+      className="bg-green-600 w-[280px] ml-4 text-black px-10 py-3 rounded-lg shadow-md mt-3"
+    >
+      Upload Documents
+    </button>
                   <button
                     onClick={() => setActiveTab("viewDocuments")}
-                    className="bg-[#4CAF50] text-white px-8 py-3 rounded-lg hover:bg-[#45a049] transition-colors"
+                    className=" text-black px-5 py-1 border border-green-700 rounded-lg hover:bg-[#45a049] transition-colors  ml-5"
                   >
                     View Documents
                   </button>
@@ -735,25 +808,27 @@ function EmployeeDetails() {
               </div>
             )}
 
+           
+
             {activeTab === "Financial" && (
-                    <div className="space-y-6 bg-white p-8 rounded-2xl md:w-3xl ">
-                        <h1 className="text-xl font-semibold">Financial Details</h1>
-                
-                  <div className="space-y-2">
-                    <label className="block text-black font-medium text-lg">
+              <div className="space-y-6 bg-white p-8 rounded-2xl md:w-3xl ">
+                <h1 className="text-xl font-semibold">Financial Details</h1>
+
+                {/* <div className="space-y-2">
+                  <label className="block text-black font-medium text-lg">
                     Bank Name
-                    </label>
-                    <input
-                      type="text"
-                      className="w-full text-zinc-800 text-lg outline-none border-none bg-blue-50 rounded-lg p-4"
-                      placeholder="Access Bank"
-                    />
-                    </div>
-                  
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  </label>
+                  <input
+                    type="text"
+                    className="w-full text-zinc-800 text-lg outline-none border-none bg-blue-50 rounded-lg p-4"
+                    placeholder="Access Bank"
+                  />
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <label className="block text-black font-medium text-lg">
-                    Account No
+                      Account No
                     </label>
                     <input
                       type="text"
@@ -762,24 +837,21 @@ function EmployeeDetails() {
                     />
                   </div>
                   <div className="space-y-2">
-                  <label className="block text-black font-medium text-lg">
-                  Account Name
-                  </label>
-                  <input
-                    type="text"
-                    className="w-full text-zinc-800 text-lg outline-none border-none bg-blue-50  rounded-lg p-4"
-                    placeholder="Johny Doe"
-                  />
+                    <label className="block text-black font-medium text-lg">
+                      Account Name
+                    </label>
+                    <input
+                      type="text"
+                      className="w-full text-zinc-800 text-lg outline-none border-none bg-blue-50  rounded-lg p-4"
+                      placeholder="Johny Doe"
+                    />
+                  </div>
                 </div>
-                </div>
-
-               
-               
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <label className="block text-black font-medium text-lg">
-                    Registered with
+                      Registered with
                     </label>
                     <input
                       type="text"
@@ -789,7 +861,7 @@ function EmployeeDetails() {
                   </div>
                   <div className="space-y-2">
                     <label className="block text-black font-medium text-lg">
-                    Pension Number
+                      Pension Number
                     </label>
                     <input
                       type="text"
@@ -797,21 +869,32 @@ function EmployeeDetails() {
                       placeholder="10111010101210101011"
                     />
                   </div>
+                </div> */}
+ <div className="max-w-2xl mx-auto p-4 bg-white rounded-lg shadow-md">
+      <h2 className="text-lg font-bold mb-3">Financial Details</h2>
 
-                </div>
+      {/* Account Details */}
+      {accounts.map((account, index) => (
+        <div key={index} className="bg-blue-100 p-4 rounded-lg mb-3">
+          <p className="font-bold">
+            {account.accountNumber} | <span className="font-semibold">{account.name}</span>
+          </p>
+          <p className="text-gray-600">{account.bank} | {account.type}</p>
+        </div>
+      ))}
+    </div>
 
                 <div className="flex w-full justify-center mt-8">
                   <button
-                    onClick={() => setActiveTab("viewDocuments")}
+                    // onClick={() => setActiveTab("viewDocuments")}
+                    onClick={()=> navigate("/financial-details")}
                     className="bg-[#4CAF50] text-white px-8 py-3 rounded-lg hover:bg-[#45a049] transition-colors"
                   >
                     View Documents
                   </button>
                 </div>
-
-               
-              </div>)
-            }
+              </div>
+            )}
           </div>
         </div>
       </div>
@@ -820,4 +903,3 @@ function EmployeeDetails() {
 }
 
 export default UpdateProfile;
-
