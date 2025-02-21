@@ -77,8 +77,18 @@ function UpdateProfile() {
   const navigate = useNavigate();
 
   const accounts = [
-    { accountNumber: "0001100101", name: "John Doe", bank: "GTBank", type: "Savings Account" },
-    { accountNumber: "0001100101", name: "Doe Johnn", bank: "GTBank", type: "Savings Account" },
+    {
+      accountNumber: "0001100101",
+      name: "John Doe",
+      bank: "GTBank",
+      type: "Savings Account",
+    },
+    {
+      accountNumber: "0001100101",
+      name: "Doe Johnn",
+      bank: "GTBank",
+      type: "Savings Account",
+    },
   ];
 
   return (
@@ -420,7 +430,6 @@ function UpdateProfile() {
 
             {activeTab === "educationQualifications" && (
               <div className="space-y-6 bg-white p-8 rounded-2xl md:w-3xl">
-               
                 <div class="max-w-2xl mx-auto bg-white p-6 rounded-lg shadow-md">
                   {/* <!-- Academic Records --> */}
                   <p class="text-lg font-bold mb-4">Academic Records</p>
@@ -477,78 +486,108 @@ function UpdateProfile() {
                       </li>
                     </ul>
                   </div>
-                  <div className="bg-green-600 w-70 ml-85 text-black px-10 py-1 rounded-lg shadow-md mt-3" onClick={() => navigate("/education-details")}><button>View Academic Details</button></div>
+                  <div
+                    className="bg-green-600 w-70 ml-85 text-black px-10 py-1 rounded-lg shadow-md mt-3"
+                    onClick={() => setActiveTab("viewEducationDetails")}
+                  >
+                    <button>View Academic Details</button>
+                  </div>
                 </div>
               </div>
             )}
 
-            {/* {activeTab === "educationQualifications" && (
-              <div className="space-y-6 bg-white p-8 rounded-2xl md:w-3xl">
-                <h1 className="text-xl font-semibold text-black mb-8">
-                  {" "}
-                  Academic Records / Academic Details
-                </h1>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="space-y-2">
-                    <label className="block text-black font-medium text-lg">
-                      Name of Institution
-                    </label>
-                    <input
-                      type="text"
-                      className="w-full text-zinc-800 text-lg outline-none border-none bg-blue-50 rounded-lg p-4"
-                      placeholder={employeeData.education.name}
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <label className="block text-black font-medium text-lg">
-                      Degree
-                    </label>
-                    <input
-                      type="text"
-                      className="w-full text-zinc-800 text-lg outline-none border-none bg-blue-50  rounded-lg p-4"
-                      placeholder={employeeData.education.degree}
-                    />
+            {activeTab === "viewEducationDetails" && (
+                <div className="border-black w-full">
+                <div className="flex min-h-screen bg-blue-50 ml-70 w-full ml-1">
+                  {/* Sidebar */}
+                 
+            
+                  {/* Main Content */}
+                  <div >
+                    <div className="max-w-3xl mx-auto bg-white p-6 rounded-lg shadow-md">
+                      <h2 className="text-lg font-bold mb-4">Academic Records / Academic Details</h2>
+            
+                      <div className="grid grid-cols-2 gap-4">
+                        <div>
+                          <label className="text-sm font-medium">Name of Institution</label>
+                          <input
+                            type="text"
+                            value="Babcock University"
+                            readOnly
+                            className="w-full p-2 bg-blue-100 rounded-md mt-1"
+                          />
+                        </div>
+                        <div>
+                          <label className="text-sm font-medium">Department</label>
+                          <input
+                            type="text"
+                            value="Computer Dept"
+                            readOnly
+                            className="w-full p-2 bg-blue-100 rounded-md mt-1"
+                          />
+                        </div>
+            
+                        <div>
+                          <label className="text-sm font-medium">Course</label>
+                          <input
+                            type="text"
+                            value="Computer Science"
+                            readOnly
+                            className="w-full p-2 bg-blue-100 rounded-md mt-1"
+                          />
+                        </div>
+                        <div>
+                          <label className="text-sm font-medium">Location</label>
+                          <input
+                            type="text"
+                            value="Ogun state, Nigeria"
+                            readOnly
+                            className="w-full p-2 bg-blue-100 rounded-md mt-1"
+                          />
+                        </div>
+            
+                        <div>
+                          <label className="text-sm font-medium">Start Date</label>
+                          <input
+                            type="text"
+                            value="01/01/1998"
+                            readOnly
+                            className="w-full p-2 bg-blue-100 rounded-md mt-1"
+                          />
+                        </div>
+                        <div>
+                          <label className="text-sm font-medium">End Date</label>
+                          <input
+                            type="text"
+                            value="01/01/2019"
+                            readOnly
+                            className="w-full p-2 bg-blue-100 rounded-md mt-1"
+                          />
+                        </div>
+                      </div>
+            
+                      <div className="mt-4">
+                        <label className="text-sm font-medium">Description</label>
+                        <textarea
+                          readOnly
+                          className="w-full p-3 bg-blue-100 rounded-md mt-1"
+                          rows="4"
+                          value={`. Gathering and evaluating product requirements, in collaboration with product managers and developers.
+            . Illustrating design ideas using storyboards, process flows, and sitemaps.
+            . Designing graphic user interface pages and elements, like menus, tabs, and widgets.
+            . Designing wireframes, mockups, storyboards, and fully interactive prototype design.`}
+                        />
+                      </div>
+            
+                      <button className="bg-green-600 w-full text-white px-10 py-2 rounded-lg shadow-md mt-4">
+                        Update
+                      </button>
+                    </div>
                   </div>
                 </div>
+                </div>
+            )}
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="space-y-2">
-                    <label className="block text-black font-medium text-lg">
-                      Start Date
-                    </label>
-                    <input
-                      type="text"
-                      className="w-full text-zinc-800 text-lg outline-none border-none bg-blue-50  rounded-lg p-4"
-                      placeholder={employeeData.education.start}
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <label className="block text-black font-medium text-lg">
-                      End Date
-                    </label>
-                    <input
-                      type="text"
-                      className="w-full text-zinc-800 text-lg outline-none border-none bg-blue-50  rounded-lg p-4"
-                      placeholder={employeeData.education.end}
-                    />
-                  </div>
-                </div>
-
-                <div className="space-y-2">
-                  <label className="block text-black font-medium text-lg">
-                    Field of Study
-                  </label>
-                  <textarea
-                    cols={100}
-                    rows={5}
-                    name=""
-                    id=""
-                    className="w-full text-zinc-400 text-lg outline-none border-none bg-blue-50  rounded-lg p-4"
-                    value={employeeData.education.field}
-                  ></textarea>
-                </div>
-              </div> */}
-            {/* )} */}
 
             {activeTab === "gurarantorDetails" && (
               <div className="space-y-6 bg-white p-8 rounded-2xl md:w-3xl ">
@@ -579,7 +618,6 @@ function UpdateProfile() {
                     Human Resources Manager , Apple Inc - 090 400 400 4848{" "}
                   </p>
                 </div>
-      
               </div>
             )}
 
@@ -621,6 +659,9 @@ function UpdateProfile() {
                     className="w-full text-zinc-800 text-lg outline-none border-none bg-blue-50  rounded-lg p-4"
                     placeholder="090 500 500 6000"
                   />
+                </div>
+                <div className="bg-green-600 w-35 ml-60 text-black px-10 py-1 rounded-lg shadow-md">
+                  <button>Update</button>
                 </div>
               </div>
             )}
@@ -717,6 +758,9 @@ function UpdateProfile() {
                     value={employeeData.contactDetails.address}
                   ></textarea>
                 </div>
+                <div className="bg-green-600 w-35 ml-70 text-black px-10 py-1 rounded-lg shadow-md">
+                  <button>Update</button>
+                </div>
               </div>
             )}
 
@@ -747,7 +791,9 @@ function UpdateProfile() {
                 </div>
 
                 <div className="space-y-4">
-                  <h3 className="text-xl font-semibold text-center">Job Description</h3>
+                  <h3 className="text-xl font-semibold text-center">
+                    Job Description
+                  </h3>
                   <p className="text-sm text-gray-800">
                     Your responsibilities will include:
                   </p>
@@ -763,15 +809,12 @@ function UpdateProfile() {
                 </div>
 
                 <div className="flex  mt-4">
-                  {/* <button onClick={()=>{
-                    navigate("/upload-documents")
-                  }} className="bg-green-600 w-70 ml-15 text-black px-10 py-3 rounded-lg shadow-md mt-3">Upload Documents</button> */}
                   <button
-      onClick={() => navigate("/upload-documents")}
-      className="bg-green-600 w-[280px] ml-4 text-black px-10 py-3 rounded-lg shadow-md mt-3"
-    >
-      Upload Documents
-    </button>
+                    onClick={() => setActiveTab("uploadDocuments")}
+                    className="bg-blue-900 w-[280px] ml-4 text-white px-10 py-3 rounded-lg shadow-md mt-3"
+                  >
+                    Upload Documents
+                  </button>
                   <button
                     onClick={() => setActiveTab("viewDocuments")}
                     className=" text-black px-5 py-1 border border-green-700 rounded-lg hover:bg-[#45a049] transition-colors  ml-5"
@@ -780,6 +823,44 @@ function UpdateProfile() {
                   </button>
                 </div>
               </div>
+            )}
+
+            {activeTab === "uploadDocuments" && (
+               <div className="flex items-center justify-center min-h-screen bg-gray-100">
+               <div className="bg-white p-6 rounded-lg shadow-md w-full max-w-2xl m-0 p-0">
+                 <h2 className="text-lg font-bold mb-4">Job Details / Upload Documents</h2>
+         
+                 {/* Upload Fields */}
+                 {[
+                   "Upload Offer Letter",
+                   "Upload NYSC Certificate",
+                   "Upload Guarantor’s Form",
+                   "Upload Degree Certificate",
+                   "Upload Birth Certificate",
+                 ].map((label, index) => (
+                   <div key={index} className="mb-4">
+                     <label className="text-sm font-medium">{label}</label>  
+                     <div className="flex items-center mt-1 bg-blue-100 rounded-md">
+                       <input
+                         type="text"
+                         value=""
+                         readOnly
+                         className="w-full p-3 bg-transparent"
+                         placeholder="No file chosen"
+                       />
+                       <button className="bg-yellow-500 text-black px-15 py-3 rounded font-semibold">
+                         Upload
+                       </button>
+                     </div>
+                   </div>
+                 ))}
+         
+                 {/* Upload Documents Button */}
+                 <button className="w-full bg-blue-900 text-white px-6 py-3 rounded-md font-semibold mt-4">
+                   Upload Documents
+                 </button>
+               </div>
+             </div>
             )}
 
             {activeTab === "viewDocuments" && (
@@ -808,90 +889,32 @@ function UpdateProfile() {
               </div>
             )}
 
-           
-
             {activeTab === "Financial" && (
               <div className="space-y-6 bg-white p-8 rounded-2xl md:w-3xl ">
-                <h1 className="text-xl font-semibold">Financial Details</h1>
+                <div className="max-w-2xl mx-auto p-4 bg-white rounded-lg shadow-md">
+                  <h2 className="text-lg font-bold mb-3">Financial Details</h2>
 
-                {/* <div className="space-y-2">
-                  <label className="block text-black font-medium text-lg">
-                    Bank Name
-                  </label>
-                  <input
-                    type="text"
-                    className="w-full text-zinc-800 text-lg outline-none border-none bg-blue-50 rounded-lg p-4"
-                    placeholder="Access Bank"
-                  />
-                </div>
+                  {/* Account Details */}
+                  {accounts.map((account, index) => (
+                    <div
+                      onClick={() => setActiveTab("financial-details")}
+                      key={index}
+                      className="bg-blue-100 p-4 rounded-lg mb-3"
+                    >
+                      <p className="font-bold">
+                        {account.accountNumber} |{" "}
+                        <span className="font-semibold">{account.name}</span>
+                      </p>
+                      <p className="text-gray-600">
+                        {account.bank} | {account.type}
+                      </p>
+                    </div>
+                  ))}
+ 
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="space-y-2">
-                    <label className="block text-black font-medium text-lg">
-                      Account No
-                    </label>
-                    <input
-                      type="text"
-                      className="w-full text-zinc-800 text-lg outline-none border-none bg-blue-50  rounded-lg p-4"
-                      placeholder="001101100"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <label className="block text-black font-medium text-lg">
-                      Account Name
-                    </label>
-                    <input
-                      type="text"
-                      className="w-full text-zinc-800 text-lg outline-none border-none bg-blue-50  rounded-lg p-4"
-                      placeholder="Johny Doe"
-                    />
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="space-y-2">
-                    <label className="block text-black font-medium text-lg">
-                      Registered with
-                    </label>
-                    <input
-                      type="text"
-                      className="w-full text-zinc-800 text-lg outline-none border-none bg-blue-50  rounded-lg p-4"
-                      placeholder="Stanbic IBTC"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <label className="block text-black font-medium text-lg">
-                      Pension Number
-                    </label>
-                    <input
-                      type="text"
-                      className="w-full text-zinc-800 text-lg outline-none border-none bg-blue-50  rounded-lg p-4"
-                      placeholder="10111010101210101011"
-                    />
-                  </div>
-                </div> */}
- <div className="max-w-2xl mx-auto p-4 bg-white rounded-lg shadow-md">
-      <h2 className="text-lg font-bold mb-3">Financial Details</h2>
-
-      {/* Account Details */}
-      {accounts.map((account, index) => (
-        <div key={index} className="bg-blue-100 p-4 rounded-lg mb-3">
-          <p className="font-bold">
-            {account.accountNumber} | <span className="font-semibold">{account.name}</span>
-          </p>
-          <p className="text-gray-600">{account.bank} | {account.type}</p>
-        </div>
-      ))}
-    </div>
-
-                <div className="flex w-full justify-center mt-8">
-                  <button
-                    // onClick={() => setActiveTab("viewDocuments")}
-                    onClick={()=> navigate("/financial-details")}
-                    className="bg-[#4CAF50] text-white px-8 py-3 rounded-lg hover:bg-[#45a049] transition-colors"
-                  >
-                    View Documents
-                  </button>
+         {activeTab === "financial-details" && (
+          <h1>hiiii</h1>
+         )}
                 </div>
               </div>
             )}

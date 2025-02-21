@@ -18,10 +18,7 @@ import SickLeave from './Component/UserSide/SickLeave'
 import MaternityLeave from './Component/UserSide/MaternityLeave'
 import CompLeave from './Component/UserSide/CompLeave'
 import UpdateProfile from './Component/UserSide/UpdateProfile'
-import EducationDetails from './Component/UserSide/EducationDetails'
 
-import UploadDocuments from './Component/UserSide/UploadDocuments'
-import ViewFinancialDetails from './Component/UserSide/ViewFinancialDetails'
 
 
 
@@ -56,9 +53,7 @@ function App() {
           <Route path="/apply-maternityleave" element={<MaternityLeave/>}/>
           <Route path="/apply-compassionateleave" element={<CompLeave/>}/>
           <Route path="/userprofile" element={<UpdateProfile/>}/>
-          <Route path="/education-details" element={<EducationDetails/>}/>
-          <Route path='/upload-documents' element={<UploadDocuments/>}/>
-          <Route  path='/financial-details' element={<ViewFinancialDetails/>}/>
+         
       </Routes>
      </Router>
 
